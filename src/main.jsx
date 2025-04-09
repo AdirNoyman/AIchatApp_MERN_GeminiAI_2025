@@ -6,6 +6,10 @@ import HomePage from './pages/home/Homepage';
 import Dashboard from './pages/dashboard/Dashboard';
 import ChatsPage from './pages/chats/ChatsPage';
 import RootLayout from './layouts/root/RootLayout';
+import DashboardLayout from './layouts/dashboard/DashboardLayout';
+import SignInPage from './pages/auth/login/SignInPage';
+import SignUPage from './pages/auth/register/SignUPage';
+
 
 const router = createBrowserRouter([
   {
@@ -16,7 +20,15 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: '/dashboard',
+        path: '/sign-in/*',
+        element: <SignInPage />
+      },
+      {
+        path: '/sign-up/*',
+        element: <SignUPage />,
+      },
+      {
+        element: <DashboardLayout />,
         children: [
           { path: '/dashboard', element: <Dashboard /> },
           { path: '/dashboard/chats/:id', element: <ChatsPage /> },
