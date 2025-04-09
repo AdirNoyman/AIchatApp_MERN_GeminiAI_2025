@@ -3,8 +3,8 @@ import { SignUp } from '@clerk/clerk-react';
 
 const SignUPage = () => {
   return (
-    <div className='signIn'>
-      <SignUp path='/sign-up' />
+    <div className='signUp'>
+      <SignUp path='/sign-up' signInUrl='/sign-in'/>
     </div>
   );
 };
