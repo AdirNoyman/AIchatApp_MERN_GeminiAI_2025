@@ -15,9 +15,9 @@
       gap: 8px;
       font-weight: bold;
 
-      img {
-        width: 32px;
-        height: 32px;
+      svg {
+        width: 8rem;
+        height: 5rem;
       }
     }
   }
