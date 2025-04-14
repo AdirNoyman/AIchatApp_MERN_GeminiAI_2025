@@ -5,6 +5,11 @@
   height: 100%;
   padding-bottom: 250px;
 
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 0px;
+  }
+
   .leftSide {
     flex: 1;
     display: flex;
@@ -21,15 +26,23 @@
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+
+      @media screen and (max-width: 1280px) {
+        font-size: 4rem;
+      }
     }
 
     h3 {
       font-weight: 400;
       max-width: 70%;
+
+      @media screen and (max-width: 1024px) {
+        max-width: 100%;
+      }
     }
     a {
       padding: 15px 25px;
-      background-color:rgb(226, 73, 17);
+      background-color: rgb(226, 73, 17);
       color: white;
       border-radius: 20px;
       font-size: 15px;
@@ -47,7 +60,6 @@
     display: flex;
     align-items: center;
     height: 100%;
-    
 
     .imgContainer {
       display: flex;
@@ -93,18 +105,25 @@
         align-items: center;
         gap: 10px;
         padding: 20px;
-        background-color:rgb(46, 42, 62, 0.8);
+        background-color: rgb(46, 42, 62, 0.8);
         border-radius: 10px;
         color: #d1cccc;
+
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
+
+        @media screen and (max-width: 1280px) {
+          right: 0;
+          
+        }
 
         img {
           width: 32px;
           height: 32px;
           border-radius: 50%;
           object-fit: cover;
-
         }
-
       }
     }
   }
@@ -117,7 +136,7 @@
     animation: 100s linear infinite rotateOrbit;
   }
 
-  .terms {    
+  .terms {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -160,10 +179,10 @@
 }
 
 @keyframes slideBg {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}

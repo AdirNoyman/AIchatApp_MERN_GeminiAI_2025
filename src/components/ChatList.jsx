@@ -1,69 +1,49 @@
-import React, { useState } from 'react';
+import './chatList.css';
 import { Link } from 'react-router-dom';
-import './homepage.css';
-import { TypeAnimation } from 'react-type-animation';
 
-const Homepage = () => {
-  const [typeStatus, setTypeStatus] = useState('Human 1');
-
+const ChatList = () => {
   return (
-    <div className='homepage'>
-      <img src='/orbital.png' className='orbital' alt='orbital' />
-      <div className='leftSide'>
-        <h1>ADIROS DEV</h1>
-        <h2>Supercharge your charge</h2>
-        <h3>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
-          voluptatem maxime reprehenderit.
-        </h3>
-        <Link to='/dashboard' aria-label='get started'>
-          Get Started
+    <div className='chatList'>
+      <span className='title'>DASHBOARD</span>
+      <Link to='/dashboard'>Create a new chat</Link>
+      <Link to='/'>Explore Adiros AI 🤓</Link>
+      <Link to='/dashboard'>Contact Us</Link>
+      <hr />
+      <div className='list'>
+        <Link to='/chat/1' className='listItem'>
+          Title for chat 1
+        </Link>
+        <Link to='/chat/2' className='listItem'>
+          Title for chat 2
+        </Link>
+        <Link to='/chat/3' className='listItem'>
+          Title for chat 3
+        </Link>
+        <Link to='/chat/4' className='listItem'>
+          Title for chat 4
+        </Link>
+        <Link to='/chat/5' className='listItem'>
+          Title for chat 5
+        </Link>
+        <Link to='/chat/6' className='listItem'>
+          Title for chat 6
+        </Link>
+        <Link to='/chat/7' className='listItem'>
+          Title for chat 7
+        </Link>
+        <Link to='/chat/8' className='listItem'>
+          Title for chat 8
+        </Link>
+        <Link to='/chat/9' className='listItem'>
+          Title for chat 9
+        </Link>
+        <Link to='/chat/10' className='listItem'>
+          Title for chat 10
         </Link>
       </div>
-      <div className='rightSide'>
-        <div className='imgContainer'>
-          <div className='bgContainer'>
-            <div className='bg'></div>
-          </div>
-          <img src='/bot.png' alt='bot' className='bot' />
-          <div className='chat'>
-            <img
-              src={`${
-                typeStatus === 'Human 1'
-                  ? '/human1.jpeg'
-                  : typeStatus === 'Human 2'
-                  ? 'human2.jpeg'
-                  : '/bot.png'
-              }`}
-              alt='profile image'
-            />
-            <TypeAnimation
-              sequence={[
-                // Same substring at the start will only be typed out once, initially
-                'Mat: We produce food for Mice',
-                2000,
-                () => setTypeStatus('bot'), // wait 1s before replacing "Mice" with "Hamsters"
-                'Bot: We produce food for Hamsters',
-                2000,
-                () => setTypeStatus('Human 2'),
-                'Jane: We produce food for Guinea Pigs',
-                2000,
-                () => setTypeStatus('bot'),
-                'Bot: We produce food for Chinchillas',
-                2000,
-                () => setTypeStatus('Human 1'),
-              ]}
-              wrapper='span'
-              repeat={Infinity}
-              cursor={true}
-              omitDeletionAnimation={true}
-            />
-          </div>
-        </div>
-      </div>
-      <div className='terms'>
+      <hr />
+      <div className='upgrade'>
         <svg
-          className='logoBottom'
           data-logo='logo'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 170 40'
@@ -135,14 +115,13 @@ const Homepage = () => {
             ></path>
           </g>
         </svg>
-        <div className='links'>
-          All rights reserved &copy; 2025 Devvvine Inc.
-          <span>|</span>
-          <Link to='/'>Terms of service</Link>
+        <div className='texts'>
+          <span>Upgrade to Adiros AI Pro</span>
+          <span>Get unlimited access to all features</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default Homepage;
+export default ChatList;
