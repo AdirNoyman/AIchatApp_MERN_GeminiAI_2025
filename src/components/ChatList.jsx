@@ -9,6 +9,7 @@ const ChatList = () => {
       <Link to='/'>Explore Adiros AI 🤓</Link>
       <Link to='/dashboard'>Contact Us</Link>
       <hr />
+      <span className='title'>RECENT CHATS</span>
       <div className='list'>
         <Link to='/chat/1' className='listItem'>
           Title for chat 1
