@@ -4,7 +4,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/home/Homepage';
 import Dashboard from './pages/dashboard/Dashboard';
-import ChatsPage from './pages/chats/ChatsPage';
+import ChatPage from './pages/chats/ChatPage';
 import RootLayout from './layouts/root/RootLayout';
 import DashboardLayout from './layouts/dashboard/DashboardLayout';
 import SignInPage from './pages/auth/login/SignInPage';
@@ -28,10 +28,10 @@ const router = createBrowserRouter([
         element: <SignUPage />,
       },
       {
-        element: <DashboardLayout />,
+        element: <DashboardLayout />,        
         children: [
           { path: '/dashboard', element: <Dashboard /> },
-          { path: '/dashboard/chats/:id', element: <ChatsPage /> },
+          { path: '/dashboard/chats/:id', element: <ChatPage /> },
         ],
       },
     ],

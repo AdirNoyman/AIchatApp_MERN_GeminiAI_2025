@@ -11,34 +11,34 @@ const ChatList = () => {
       <hr />
       <span className='title'>RECENT CHATS</span>
       <div className='list'>
-        <Link to='/chat/1' className='listItem'>
+        <Link to='/dashboard/chats/1' className='listItem'>
           Title for chat 1
         </Link>
-        <Link to='/chat/2' className='listItem'>
+        <Link to='/dashboard/chats/2' className='listItem'>
           Title for chat 2
         </Link>
-        <Link to='/chat/3' className='listItem'>
+        <Link to='/dashboard/chats/3' className='listItem'>
           Title for chat 3
         </Link>
-        <Link to='/chat/4' className='listItem'>
+        <Link to='/dashboard/chats/4' className='listItem'>
           Title for chat 4
         </Link>
-        <Link to='/chat/5' className='listItem'>
+        <Link to='/dashboard/chats/5' className='listItem'>
           Title for chat 5
         </Link>
-        <Link to='/chat/6' className='listItem'>
+        <Link to='/dashboard/chats/6' className='listItem'>
           Title for chat 6
         </Link>
-        <Link to='/chat/7' className='listItem'>
+        <Link to='/dashboard/chats/7' className='listItem'>
           Title for chat 7
         </Link>
-        <Link to='/chat/8' className='listItem'>
+        <Link to='/dashboard/chats/8' className='listItem'>
           Title for chat 8
         </Link>
-        <Link to='/chat/9' className='listItem'>
+        <Link to='/dashboard/chats/9' className='listItem'>
           Title for chat 9
         </Link>
-        <Link to='/chat/10' className='listItem'>
+        <Link to='/dashboard/chats/10' className='listItem'>
           Title for chat 10
         </Link>
       </div>
