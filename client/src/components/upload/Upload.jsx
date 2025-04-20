@@ -1,7 +1,9 @@
 import { IKContext, IKUpload } from 'imagekitio-react';
+import { useRef } from 'react';
 
 const urlEndpoint = import.meta.env.VITE_IMAGE_KIT_ENDPOINT;
 const publicKey = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY;
+
 const authenticator = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/upload');
@@ -21,9 +23,33 @@ const authenticator = async () => {
   }
 };
 
-import React from 'react';
+const Upload = ({ setImg }) => {
 
-const Upload = () => {
+  const ImgKitUploadRef = useRef(null);
+
+
+  const onError = (err) => {
+    console.log('Error', err);
+  };
+
+  const onSuccess = (resFromImageKitBackend) => {
+    console.log('Success', resFromImageKitBackend);
+    setImg((prev) => ({
+      ...prev,
+      isLoading: false,
+      imgData: resFromImageKitBackend,
+    }));
+  };
+
+  const onUploadProgress = (progress) => {
+    console.log('Progress', progress);
+  };
+
+  const onUploadStart = (evt) => {
+    console.log('Start', evt);
+    setImg((prev) => ({ ...prev, isLoading: true }));
+  };
+
   return (
     <IKContext
       urlEndpoint={urlEndpoint}
@@ -31,10 +57,20 @@ const Upload = () => {
       authenticator={authenticator}
     >
       <IKUpload
-          fileName="test-upload.png"
-          onError={onError}
-          onSuccess={onSuccess}
-        />
+        fileName='test-upload.png'
+        onError={onError}
+        onSuccess={onSuccess}
+        useUniqueFileName={true}
+        onUploadProgress={onUploadProgress}
+        onUploadStart={onUploadStart}
+        style={{ display: 'none' }}
+        ref={ImgKitUploadRef}
+      />
+      {
+        <label onClick={() => ImgKitUploadRef.current.click()}>
+          <img src='/attachment.png' alt='add image' />
+        </label>
+      }
     </IKContext>
   );
 };

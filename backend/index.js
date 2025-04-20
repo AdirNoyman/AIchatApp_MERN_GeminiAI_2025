@@ -1,5 +1,7 @@
 import express from 'express';
 import ImageKit from 'imagekit';
+import cors from 'cors';
+
 import 'dotenv/config';
 
 const app = express();
@@ -13,15 +15,11 @@ const imageKit = new ImageKit({
   privateKey: process.env.IMAGE_KIT_PRIVATE_KEY,
 });
 
-// allow cross-origin requests
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// allow cross-origin requests middleware
+
+app.use(cors({
+  origin: process.env.CLIENT_URL, 
+}));
 
 app.get('/api/upload', (req, res) => {
   const result = imageKit.getAuthenticationParameters();
