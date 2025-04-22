@@ -2,6 +2,7 @@ import Upload from '../upload/Upload';
 import './newPrompt.css';
 import { useEffect, useRef, useState } from 'react';
 import { IKImage } from 'imagekitio-react';
+import GeminiAI from '../../lib/gemini';
 
 const NewPrompt = () => {
 
@@ -17,6 +18,12 @@ const NewPrompt = () => {
     endRef.current.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
+
+async function sendPromptToAI(userPrompt) {
+  const result = await GeminiAI(userPrompt);
+  console.log("AI response was: ", result)
+}
+
   return (
     <>
     {/* WHERE A NEW MESSAGE CONTENT FROM THE USER ON THE CHAT WILL BE*/}
@@ -28,8 +35,10 @@ const NewPrompt = () => {
     {image.imgData?.filePath && (
       <IKImage urlEndpoint={import.meta.env.VITE_IMAGE_KIT_ENDPOINT} path={image.imgData?.filePath} width="380" transformation={[{width: 380}]}/>
     )}
+     <button onClick={() => sendPromptToAI("Trump")}>TEST AI</button>
     <div className="endChat" ref={endRef}></div>
     {/* INPUT CHAT FIELD */}
+   
       <form className='newForm'>
         <Upload setImg={setImage}/>
         <input id="file" type='file' multiple={false} hidden/>
@@ -38,6 +47,7 @@ const NewPrompt = () => {
           <img src="/arrow.png" alt="submit" />
         </button>
       </form>
+     
     </>
   );
 };
